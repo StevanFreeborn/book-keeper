@@ -13,14 +13,23 @@ export async function loader({ params }: Route.LoaderArgs) {
     return redirect("/not-found");
   }
 
-  return { book: book.dataValues };
+  return {
+    book: {
+      id: book.id,
+      title: book.title,
+      author: book.author,
+    },
+  };
 }
 
 export default function BookView({ loaderData }: Route.ComponentProps) {
   const { book } = loaderData;
-  return <div>
-    <div>Id: { book.id }</div>
-    <div>Title: { book.title }</div>
-    <div>Author: { book.author }</div>
-  </div>
+  
+  return (
+    <div>
+      <div>Id: {book.id}</div>
+      <div>Title: {book.title}</div>
+      <div>Author: {book.author}</div>
+    </div>
+  );
 }
