@@ -6,7 +6,7 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  index("routes/home.tsx"),
+  index("routes/books/index.tsx", { id: 'index' }),
   ...prefix("books", [
     index("routes/books/index.tsx"),
     route("add", "routes/books/add.tsx"),
