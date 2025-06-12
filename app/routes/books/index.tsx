@@ -18,22 +18,33 @@ export default function Index({ loaderData }: Route.ComponentProps) {
   const { books } = loaderData;
 
   return (
-    <div className="flex flex-col gap-4">
-      <Link to="/books/add">
-        <button>Add Book</button>
+    <div className="flex flex-col gap-4 p-4">
+      <Link
+        className="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded w-fit items-center"
+        to="/books/add"
+      >
+        Add Book
       </Link>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 p-2">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-2">
         {books.map((b) => (
-          <div key={b.id} className="w-[400px] rounded-md border">
-            <div className="flex flex-col items-center relative">
-              <img src="https://placehold.co/128x198" alt={`Cover of ${b.title}`} />
-              <div className="absolute bottom-0 left-0 m-2 p-2 bg-white/25 rounded-md">
+          <div key={b.id} className="shadow-lg">
+            <div className="flex flex-col rounded-t-md items-center relative bg-gradient-to-r from-blue-800 to-indigo-900">
+              <img
+                src="https://placehold.co/128x198"
+                alt={`Cover of ${b.title}`}
+              />
+              <div className="text-gray-950 absolute bottom-0 left-0 m-2 p-2 bg-white/50 rounded-md">
                 <div className="text-lg font-bold">{b.title}</div>
                 <div className="text-xs">{b.author}</div>
               </div>
             </div>
-            <div className="bg-white rounded-b-md">
-              <Link to={`/books/${b.id}`}>View</Link>
+            <div className="bg-gray-700 rounded-b-md flex justify-center items-center p-2">
+              <Link
+                className="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded items-center w-full text-center"
+                to={`/books/${b.id}`}
+              >
+                View
+              </Link>
             </div>
           </div>
         ))}
