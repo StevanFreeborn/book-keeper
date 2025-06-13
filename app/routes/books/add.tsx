@@ -26,7 +26,7 @@ export async function action({ request }: Route.ActionArgs) {
 
 export default function AddBook() {
   return (
-    <div>
+    <div className="p-4">
       <BookForm />
     </div>
   );

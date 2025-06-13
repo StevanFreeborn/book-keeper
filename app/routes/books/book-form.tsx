@@ -7,12 +7,16 @@ export function BookForm({
 }) {
   return (
     <Form
+      className="flex flex-col gap-2"
       method={book ? "PUT" : "POST"}
       action={book ? `/books/${book.id}/edit` : "/books/add"}
     >
-      <div>
-        <label htmlFor="title">Title</label>
+      <div className="flex flex-col gap-1">
+        <label className="font-bold" htmlFor="title">
+          Title
+        </label>
         <input
+          className="px-2 py-1 bg-gray-700 rounded-sm border border-white/20"
           id="title"
           name="title"
           type="text"
@@ -20,9 +24,12 @@ export function BookForm({
           required
         />
       </div>
-      <div>
-        <label htmlFor="author">Author</label>
+      <div className="flex flex-col gap-1">
+        <label className="font-bold" htmlFor="author">
+          Author
+        </label>
         <input
+          className="px-2 py-1 bg-gray-700 rounded-sm border border-white/20"
           id="author"
           name="author"
           type="text"
@@ -30,7 +37,12 @@ export function BookForm({
           required
         />
       </div>
-      <button type="submit">{book ? "Save" : "Add"}</button>
+      <button
+        className="bg-gray-300 text-gray-800 font-bold mt-2 py-1 px-4 rounded w-fit items-center cursor-pointer"
+        type="submit"
+      >
+        {book ? "Save" : "Add"}
+      </button>
     </Form>
   );
 }
